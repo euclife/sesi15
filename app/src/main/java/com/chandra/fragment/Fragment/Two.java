@@ -84,7 +84,11 @@ public class Two extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         //        Menambah data ke array
-        arrayProduct.add(new Product(1, 20000, "Kampret"));
+        arrayProduct.add(new Product(1, 20000, "Waduh"));
+        arrayProduct.add(new Product(2, 10000, "Simpanse"));
+        arrayProduct.add(new Product(3, 30000, "Hmm"));
+        arrayProduct.add(new Product(4, 40000, "aww"));
+        arrayProduct.add(new Product(5, 60000, "ss"));
 
 
         // 3. create an adapter
