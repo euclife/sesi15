@@ -30,9 +30,6 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.OnF
                 case R.id.navigation_dashboard:
                     addFragment(new Two(),true,"Two");
                     return true;
-                case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
-                    return true;
             }
             return false;
         }
@@ -43,7 +40,6 @@ public class MainActivity extends AppCompatActivity implements BlankFragment.OnF
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }

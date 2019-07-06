@@ -13,22 +13,21 @@ import com.chandra.fragment.R;
 
 import java.util.List;
 
-public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder{
-    List<Product> listBerita;
+public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder>{
+    List<Product> listProduct;
 
     public class ProductViewHolder extends RecyclerView.ViewHolder{
-        public TextView nama_product, listIsiBerita, listWaktuPosted;
+        public TextView nama_product, harga_product;
 
         public ProductViewHolder(@NonNull View itemView){
             super(itemView);
-            nama = itemView.findViewById(R.id.listJudulBerita);
-            listIsiBerita = itemView.findViewById(R.id.listIsiBerita);
-            listWaktuPosted = itemView.findViewById(R.id.listWaktuPosted);
+            nama_product = itemView.findViewById(R.id.txtNama);
+            harga_product = itemView.findViewById(R.id.txtHarga);
         }
     }
 
-    public ProductAdapter (List<Product> listBerita){
-        this.listBerita = listBerita;
+    public ProductAdapter (List<Product> listProduct){
+        this.listProduct= listProduct;
     }
 
     @NonNull
@@ -41,19 +40,18 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     @Override
     public void onBindViewHolder(@NonNull final ProductViewHolder productViewHolder, int i) {
-        productViewHolder..setText(listBerita.get(i).getJudul_berita());
-        beritaViewHolder.listIsiBerita.setText(listBerita.get(i).getIsi_berita());
-        beritaViewHolder.listWaktuPosted.setText(listBerita.get(i).getWaktu_posted());
-        beritaViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(beritaViewHolder.itemView.getContext(), "clicked on Row",Toast.LENGTH_SHORT);
-            }
-        });
+        productViewHolder.nama_product.setText(listProduct.get(i).getNama_product());
+        productViewHolder.harga_product.setText(listProduct.get(i).getHarga().toString());
+//        beritaViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(beritaViewHolder.itemView.getContext(), "clicked on Row",Toast.LENGTH_SHORT);
+//            }
+//        });
     }
 
     @Override
     public int getItemCount() {
-        return listBerita.size();
+        return listProduct.size();
     }
 }

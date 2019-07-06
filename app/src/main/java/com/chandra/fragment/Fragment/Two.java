@@ -4,11 +4,18 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.chandra.fragment.Adapters.ProductAdapter;
+import com.chandra.fragment.Models.Product;
 import com.chandra.fragment.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,17 +62,40 @@ public class Two extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
+    RecyclerView recyclerMahasiswa;
+    ProductAdapter productAdapter;
+    ArrayList<Product> arrayProduct = new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_two, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_two, container, false);
+        // 1. get a reference to recyclerView
+        RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.RecycleView);
+
+        // 2. set layoutManger
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        //        Menambah data ke array
+        arrayProduct.add(new Product(1, 20000, "Kampret"));
+
+
+        // 3. create an adapter
+        productAdapter = new ProductAdapter(arrayProduct);
+        // 4. set adapter
+        recyclerView.setAdapter(productAdapter);
+        // 5. set item animator to DefaultAnimator
+
+
+        productAdapter.notifyDataSetChanged();
+        return rootView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

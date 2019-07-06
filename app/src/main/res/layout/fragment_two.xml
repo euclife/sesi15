@@ -5,11 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.Two"
     android:orientation="vertical">
-    
+
+    <!--Recyle Widget-->
     <android.support.v7.widget.RecyclerView
-        android:layout_width=""
-        android:layout_height=""></android.support.v7.widget.RecyclerView>
-    
-    
-    
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/RecycleView"
+        android:orientation="vertical"/>
+        >
+
 </LinearLayout>
